@@ -1,21 +1,22 @@
 <template>
-	<a class="btn-default" v-bind:href="href" v-bind:title="title" @click="taClick">{{text}}</a>
+  <a class="btn-default" v-bind:href="href" v-bind:title="title" @click="taClick" v-bind:rel="rel">{{text}}{{rel}}</a>
 </template>
 <script>
 export default {
   name: 'cbutton',
-  data () {
+  props: ['text', 'rel'],
+  data() {
     return {
       href: '#',
-      title: '',
-      text: '确定'
+      title: ''
     }
   },
   methods: {
-    taClick: function (e) {
+    taClick: function(e) {
       e.preventDefault()
-       this.text = 'OK'
+      this.text = 'OK'
     }
   }
 }
+
 </script>

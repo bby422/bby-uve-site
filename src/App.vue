@@ -3,7 +3,10 @@
   <div id="app">
     <img src="./assets/logo.png">
     {{msg}}
-    <cbutton href="http://www.baidu.com" title="哈哈" text="点呀" />
+    <!-- 这里可以控制变量输入 -->
+    <input v-model="parentRel" />
+    <!-- 这里绑定的parentRel是在data中的Rel -->
+    <cbutton href="http://www.baidu.com" title="哈哈" text="点呀" v-bind:rel="parentRel" />
     <router-view/>
   </div>
 </template>
@@ -14,7 +17,8 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: '你个傻逼孩子'
+      msg: '你个傻逼孩子',
+      parentRel: '要有'
     }
   },
   components: {
